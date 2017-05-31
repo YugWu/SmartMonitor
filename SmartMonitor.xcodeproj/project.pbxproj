@@ -1,0 +1,521 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F785F6161EDEE11C0022744C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785F6151EDEE11C0022744C /* AppDelegate.swift */; };
+		F785F6181EDEE11C0022744C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785F6171EDEE11C0022744C /* ViewController.swift */; };
+		F785F61A1EDEE11C0022744C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F785F6191EDEE11C0022744C /* Assets.xcassets */; };
+		F785F61D1EDEE11C0022744C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F785F61B1EDEE11C0022744C /* Main.storyboard */; };
+		F785F6281EDEE11C0022744C /* SmartMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785F6271EDEE11C0022744C /* SmartMonitorTests.swift */; };
+		F785F6331EDEE11C0022744C /* SmartMonitorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785F6321EDEE11C0022744C /* SmartMonitorUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F785F6241EDEE11C0022744C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F785F60A1EDEE11B0022744C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F785F6111EDEE11B0022744C;
+			remoteInfo = SmartMonitor;
+		};
+		F785F62F1EDEE11C0022744C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F785F60A1EDEE11B0022744C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F785F6111EDEE11B0022744C;
+			remoteInfo = SmartMonitor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F785F6121EDEE11B0022744C /* SmartMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F785F6151EDEE11C0022744C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F785F6171EDEE11C0022744C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F785F6191EDEE11C0022744C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F785F61C1EDEE11C0022744C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F785F61E1EDEE11C0022744C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F785F6231EDEE11C0022744C /* SmartMonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartMonitorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F785F6271EDEE11C0022744C /* SmartMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartMonitorTests.swift; sourceTree = "<group>"; };
+		F785F6291EDEE11C0022744C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F785F62E1EDEE11C0022744C /* SmartMonitorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartMonitorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F785F6321EDEE11C0022744C /* SmartMonitorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartMonitorUITests.swift; sourceTree = "<group>"; };
+		F785F6341EDEE11C0022744C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F785F60F1EDEE11B0022744C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F785F6201EDEE11C0022744C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F785F62B1EDEE11C0022744C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F785F6091EDEE11B0022744C = {
+			isa = PBXGroup;
+			children = (
+				F785F6141EDEE11B0022744C /* SmartMonitor */,
+				F785F6261EDEE11C0022744C /* SmartMonitorTests */,
+				F785F6311EDEE11C0022744C /* SmartMonitorUITests */,
+				F785F6131EDEE11B0022744C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F785F6131EDEE11B0022744C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F785F6121EDEE11B0022744C /* SmartMonitor.app */,
+				F785F6231EDEE11C0022744C /* SmartMonitorTests.xctest */,
+				F785F62E1EDEE11C0022744C /* SmartMonitorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F785F6141EDEE11B0022744C /* SmartMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				F785F6151EDEE11C0022744C /* AppDelegate.swift */,
+				F785F6171EDEE11C0022744C /* ViewController.swift */,
+				F785F6191EDEE11C0022744C /* Assets.xcassets */,
+				F785F61B1EDEE11C0022744C /* Main.storyboard */,
+				F785F61E1EDEE11C0022744C /* Info.plist */,
+			);
+			path = SmartMonitor;
+			sourceTree = "<group>";
+		};
+		F785F6261EDEE11C0022744C /* SmartMonitorTests */ = {
+			isa = PBXGroup;
+			children = (
+				F785F6271EDEE11C0022744C /* SmartMonitorTests.swift */,
+				F785F6291EDEE11C0022744C /* Info.plist */,
+			);
+			path = SmartMonitorTests;
+			sourceTree = "<group>";
+		};
+		F785F6311EDEE11C0022744C /* SmartMonitorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F785F6321EDEE11C0022744C /* SmartMonitorUITests.swift */,
+				F785F6341EDEE11C0022744C /* Info.plist */,
+			);
+			path = SmartMonitorUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F785F6111EDEE11B0022744C /* SmartMonitor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F785F6371EDEE11C0022744C /* Build configuration list for PBXNativeTarget "SmartMonitor" */;
+			buildPhases = (
+				F785F60E1EDEE11B0022744C /* Sources */,
+				F785F60F1EDEE11B0022744C /* Frameworks */,
+				F785F6101EDEE11B0022744C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmartMonitor;
+			productName = SmartMonitor;
+			productReference = F785F6121EDEE11B0022744C /* SmartMonitor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F785F6221EDEE11C0022744C /* SmartMonitorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F785F63A1EDEE11C0022744C /* Build configuration list for PBXNativeTarget "SmartMonitorTests" */;
+			buildPhases = (
+				F785F61F1EDEE11C0022744C /* Sources */,
+				F785F6201EDEE11C0022744C /* Frameworks */,
+				F785F6211EDEE11C0022744C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F785F6251EDEE11C0022744C /* PBXTargetDependency */,
+			);
+			name = SmartMonitorTests;
+			productName = SmartMonitorTests;
+			productReference = F785F6231EDEE11C0022744C /* SmartMonitorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F785F62D1EDEE11C0022744C /* SmartMonitorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F785F63D1EDEE11C0022744C /* Build configuration list for PBXNativeTarget "SmartMonitorUITests" */;
+			buildPhases = (
+				F785F62A1EDEE11C0022744C /* Sources */,
+				F785F62B1EDEE11C0022744C /* Frameworks */,
+				F785F62C1EDEE11C0022744C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F785F6301EDEE11C0022744C /* PBXTargetDependency */,
+			);
+			name = SmartMonitorUITests;
+			productName = SmartMonitorUITests;
+			productReference = F785F62E1EDEE11C0022744C /* SmartMonitorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F785F60A1EDEE11B0022744C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = WuMingyu;
+				TargetAttributes = {
+					F785F6111EDEE11B0022744C = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+					F785F6221EDEE11C0022744C = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F785F6111EDEE11B0022744C;
+					};
+					F785F62D1EDEE11C0022744C = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F785F6111EDEE11B0022744C;
+					};
+				};
+			};
+			buildConfigurationList = F785F60D1EDEE11B0022744C /* Build configuration list for PBXProject "SmartMonitor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F785F6091EDEE11B0022744C;
+			productRefGroup = F785F6131EDEE11B0022744C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F785F6111EDEE11B0022744C /* SmartMonitor */,
+				F785F6221EDEE11C0022744C /* SmartMonitorTests */,
+				F785F62D1EDEE11C0022744C /* SmartMonitorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F785F6101EDEE11B0022744C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F785F61A1EDEE11C0022744C /* Assets.xcassets in Resources */,
+				F785F61D1EDEE11C0022744C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F785F6211EDEE11C0022744C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F785F62C1EDEE11C0022744C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F785F60E1EDEE11B0022744C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F785F6181EDEE11C0022744C /* ViewController.swift in Sources */,
+				F785F6161EDEE11C0022744C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F785F61F1EDEE11C0022744C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F785F6281EDEE11C0022744C /* SmartMonitorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F785F62A1EDEE11C0022744C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F785F6331EDEE11C0022744C /* SmartMonitorUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F785F6251EDEE11C0022744C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F785F6111EDEE11B0022744C /* SmartMonitor */;
+			targetProxy = F785F6241EDEE11C0022744C /* PBXContainerItemProxy */;
+		};
+		F785F6301EDEE11C0022744C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F785F6111EDEE11B0022744C /* SmartMonitor */;
+			targetProxy = F785F62F1EDEE11C0022744C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F785F61B1EDEE11C0022744C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F785F61C1EDEE11C0022744C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F785F6351EDEE11C0022744C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F785F6361EDEE11C0022744C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		F785F6381EDEE11C0022744C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SmartMonitor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = HuaYu.SmartMonitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		F785F6391EDEE11C0022744C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SmartMonitor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = HuaYu.SmartMonitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		F785F63B1EDEE11C0022744C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SmartMonitorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = HuaYu.SmartMonitorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartMonitor.app/Contents/MacOS/SmartMonitor";
+			};
+			name = Debug;
+		};
+		F785F63C1EDEE11C0022744C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SmartMonitorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = HuaYu.SmartMonitorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartMonitor.app/Contents/MacOS/SmartMonitor";
+			};
+			name = Release;
+		};
+		F785F63E1EDEE11C0022744C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SmartMonitorUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = HuaYu.SmartMonitorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = SmartMonitor;
+			};
+			name = Debug;
+		};
+		F785F63F1EDEE11C0022744C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SmartMonitorUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = HuaYu.SmartMonitorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = SmartMonitor;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F785F60D1EDEE11B0022744C /* Build configuration list for PBXProject "SmartMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F785F6351EDEE11C0022744C /* Debug */,
+				F785F6361EDEE11C0022744C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F785F6371EDEE11C0022744C /* Build configuration list for PBXNativeTarget "SmartMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F785F6381EDEE11C0022744C /* Debug */,
+				F785F6391EDEE11C0022744C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F785F63A1EDEE11C0022744C /* Build configuration list for PBXNativeTarget "SmartMonitorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F785F63B1EDEE11C0022744C /* Debug */,
+				F785F63C1EDEE11C0022744C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F785F63D1EDEE11C0022744C /* Build configuration list for PBXNativeTarget "SmartMonitorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F785F63E1EDEE11C0022744C /* Debug */,
+				F785F63F1EDEE11C0022744C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F785F60A1EDEE11B0022744C /* Project object */;
+}
