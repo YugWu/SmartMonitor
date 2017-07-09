@@ -13,7 +13,7 @@
 		F785F61D1EDEE11C0022744C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F785F61B1EDEE11C0022744C /* Main.storyboard */; };
 		F785F6281EDEE11C0022744C /* SmartMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785F6271EDEE11C0022744C /* SmartMonitorTests.swift */; };
 		F785F6331EDEE11C0022744C /* SmartMonitorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785F6321EDEE11C0022744C /* SmartMonitorUITests.swift */; };
-		F7F84C411EE31DD400DCB04F /* SystemUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F84C401EE31DD400DCB04F /* SystemUsage.swift */; };
+		F7F84C411EE31DD400DCB04F /* SystemObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F84C401EE31DD400DCB04F /* SystemObserver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +46,7 @@
 		F785F62E1EDEE11C0022744C /* SmartMonitorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartMonitorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F785F6321EDEE11C0022744C /* SmartMonitorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartMonitorUITests.swift; sourceTree = "<group>"; };
 		F785F6341EDEE11C0022744C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F7F84C401EE31DD400DCB04F /* SystemUsage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemUsage.swift; sourceTree = "<group>"; };
+		F7F84C401EE31DD400DCB04F /* SystemObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemObserver.swift; sourceTree = "<group>"; };
 		F7F84C421EE320E700DCB04F /* SmartMonitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SmartMonitor.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,7 +104,7 @@
 				F785F6191EDEE11C0022744C /* Assets.xcassets */,
 				F785F61B1EDEE11C0022744C /* Main.storyboard */,
 				F785F61E1EDEE11C0022744C /* Info.plist */,
-				F7F84C401EE31DD400DCB04F /* SystemUsage.swift */,
+				F7F84C401EE31DD400DCB04F /* SystemObserver.swift */,
 			);
 			path = SmartMonitor;
 			sourceTree = "<group>";
@@ -266,7 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F785F6181EDEE11C0022744C /* ViewController.swift in Sources */,
-				F7F84C411EE31DD400DCB04F /* SystemUsage.swift in Sources */,
+				F7F84C411EE31DD400DCB04F /* SystemObserver.swift in Sources */,
 				F785F6161EDEE11C0022744C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
