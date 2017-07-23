@@ -57,8 +57,8 @@ class CpuObserver: Observer {
     private var hostCpuLoadInfo = host_cpu_load_info()
     private var lastCpuTicks = (natural_t(0),natural_t(0),natural_t(0),natural_t(0))
     
-    init() {
-        super.init(normalValue: 25.0, unit: "%", description: "All cpu usage.")
+    init(normalValue: Float) {
+        super.init(normalValue: normalValue, unit: "%", description: "All cpu usage.")
         // init lastCpuTicks
         _ = self.getCpuUsage()
     }

@@ -28,7 +28,7 @@ class ViewController: NSViewController, NSUserNotificationCenterDelegate {
         NSUserNotificationAction(identifier: "sleep", title: "sleep"),
         NSUserNotificationAction(identifier: "exit", title: "exit")]
     
-    let cpuObserver = CpuObserver()
+    let cpuObserver = CpuObserver(normalValue: 0.0)
     var cpuObserverStatus = ObserverStatus.inited
     var cpuObserverTriggeredTime = 0
     let cpuObserverMaxTriggeredTime = 10
@@ -95,15 +95,16 @@ class ViewController: NSViewController, NSUserNotificationCenterDelegate {
     func userNotificationCenter(
         _ center: NSUserNotificationCenter,
         didActivate notification: NSUserNotification) {
-        
+        // TODO: What about close Button? Can you catch close event?
         switch (notification.activationType) {
         case .contentsClicked:
             self.openSystemMonitor()
             self.notificationCenter.removeDeliveredNotification(self.notification)
             self.cpuObserverStatus = ObserverStatus.inited
         case .actionButtonClicked:
-            // TODO: no action button and design the notification communiction
-            self.testText.stringValue = "actionButtonClicked"
+            // TODO: No pop main window
+            // Ignore this alert
+            self.cpuObserverStatus = ObserverStatus.inited
         case .additionalActionClicked:
             let action =
                 notification.additionalActivationAction!.identifier!
@@ -159,6 +160,13 @@ class ViewController: NSViewController, NSUserNotificationCenterDelegate {
                     }
                     else {
                         self.cpuObserverSleepedTime = 0
+                        self.cpuObserverStatus = ObserverStatus.inited
+                    }
+                case .alerted:
+                    if result.isNormal {
+                        self.notificationCenter.removeDeliveredNotification(
+                            self.notification
+                        )
                         self.cpuObserverStatus = ObserverStatus.inited
                     }
                 default:
