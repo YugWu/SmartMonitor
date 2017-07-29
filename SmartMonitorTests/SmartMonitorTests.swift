@@ -37,7 +37,7 @@ class SmartMonitorTests: XCTestCase {
 
 
 class SystemObserverTests: XCTestCase {
-    let cpuObserver = CpuObserver()
+    let cpuObserver = CpuObserver(normalValue: 50)
     
     override func setUp() {
         super.setUp()
@@ -50,10 +50,9 @@ class SystemObserverTests: XCTestCase {
     }
     
     func testCpuObserver() {
-        let result = cpuObserver.glance()
-        XCTAssertTrue(result.isNormal, "\(result.value)")
-//        XCTAssertFalse(result.isNormal, "\(result.value)")
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let _ = cpuObserver.glance()
+        cpuObserver.enterInitialedStatus()
     }
     
     func testPerformanceExample() {

@@ -9,23 +9,30 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>-[SystemObserverTests testCpuObserver].xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false />
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>F785F6111EDEE11B0022744C</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 		<key>F785F6221EDEE11C0022744C</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 		<key>F785F62D1EDEE11C0022744C</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 	</dict>
 </dict>

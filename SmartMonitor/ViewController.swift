@@ -9,45 +9,39 @@
 import Cocoa
 
 
-enum ObserverStatus: Int {
-    case inited = 0
-    case triggered = 1
-    case alerted = 2
-    case sleeped = 3
-}
-
-
 class ViewController: NSViewController, NSUserNotificationCenterDelegate {
-    // FIXME: circular reference with notificationCenter
     @IBOutlet weak var testButton: NSButton!
     @IBOutlet weak var testText: NSTextField!
     
-    let notification = NSUserNotification()
     let notificationCenter = NSUserNotificationCenter.default
-    let notificationActoins = [
-        NSUserNotificationAction(identifier: "sleep", title: "sleep"),
-        NSUserNotificationAction(identifier: "exit", title: "exit")]
-    
-    let cpuObserver = CpuObserver(normalValue: 0.0)
-    var cpuObserverStatus = ObserverStatus.inited
-    var cpuObserverTriggeredTime = 0
-    let cpuObserverMaxTriggeredTime = 10
-    var cpuObserverSleepedTime = 0
-    let cpuObserverMaxSleepedTime = 10
-    
+    let notificationActionTitle = "sleep"
+    let notificationActions = [
+            NSUserNotificationAction(identifier: "sleep", title: "sleep"),
+            NSUserNotificationAction(identifier: "exit", title: "exit")]
+
+    var observers = [String : Observer]()
+    var notifications = [String: NSUserNotification]()
+
     var backgroundTaskRunning: Bool = false
-    let sleepTime: UInt32 = 5 // seconds, check results every interval time
-    let persistentTime = 300 // raise alert after persistent time
- 
+    let sleepSeconds: UInt32 = 5
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.notificationCenter.delegate = self
-        self.notification.actionButtonTitle = "ignore"
-        self.notification.additionalActions = self.notificationActoins
-        
-        // TODO: select item
+        // FIXME: circular reference with notificationCenter
+        notificationCenter.delegate = self
+
+        // TODO: dynamic define observers and notifications
+        let notification = NSUserNotification()
+        let cpuObserver = CpuObserver(normalValue: 50.0)
+
+        notification.title = cpuObserver.name
+        notification.actionButtonTitle = notificationActionTitle
+        notification.additionalActions = notificationActions
+
+        observers[cpuObserver.name] = cpuObserver
+        notifications[cpuObserver.name] = notification
     }
 
     override var representedObject: Any? {
@@ -55,7 +49,7 @@ class ViewController: NSViewController, NSUserNotificationCenterDelegate {
         // Update the view, if already loaded.
         }
     }
- 
+
     @IBAction func testAction(sender: AnyObject) {
         if self.backgroundTaskRunning == false {
             self.backgroundTaskRunning = true
@@ -64,7 +58,7 @@ class ViewController: NSViewController, NSUserNotificationCenterDelegate {
         }
         else {
             self.backgroundTaskRunning = false
-            self.testText.stringValue = "Stoped"
+            self.testText.stringValue = "Stopped"
         }
     }
     
@@ -73,17 +67,6 @@ class ViewController: NSViewController, NSUserNotificationCenterDelegate {
         NSWorkspace.shared().launchApplication("Activity Monitor")
     }
     
-    
-    func handleNotification(notification: NSUserNotification) {
-        self.testText.stringValue = "\(notification.activationType)"
-        switch (notification.activationType) {
-        case .replied:
-            guard let res = notification.response else { return }
-            print("User replied: \(res.string)")
-        default:
-            break;
-        }
-    }
     
     // NSUserNotificationCenterDelegate
     func userNotificationCenter(
@@ -95,84 +78,78 @@ class ViewController: NSViewController, NSUserNotificationCenterDelegate {
     func userNotificationCenter(
         _ center: NSUserNotificationCenter,
         didActivate notification: NSUserNotification) {
-        // TODO: What about close Button? Can you catch close event?
+        let observerName = notification.title
+        let observer = observers[observerName!]
         switch (notification.activationType) {
         case .contentsClicked:
             self.openSystemMonitor()
-            self.notificationCenter.removeDeliveredNotification(self.notification)
-            self.cpuObserverStatus = ObserverStatus.inited
+            self.notificationCenter.removeDeliveredNotification(notification)
+            observer!.enterInitialedStatus()
+         // FIXME: Do not pop window or get focus
         case .actionButtonClicked:
-            // TODO: No pop main window
-            // Ignore this alert
-            self.cpuObserverStatus = ObserverStatus.inited
+            observer!.enterSleepingStatus()
         case .additionalActionClicked:
             let action =
                 notification.additionalActivationAction!.identifier!
-            if action == "sleep" {
-                self.cpuObserverStatus = ObserverStatus.sleeped
-            } else if action == "exit" {
+            if action == "exit" {
                 exit(0)
+            } else if action == "sleep" {
+                observer!.enterSleepingStatus()
             }
         default:
             break;
         }
     }
     
-    func sendNotification(title: String, informativeText: String) {
-        self.notification.title = title
-        self.notification.informativeText = informativeText
-        self.notificationCenter.scheduleNotification(self.notification)
-    }
-    
     private func runBackgroundTask() {
+        // NOTE: Multi-threaded competition when update UI
         DispatchQueue.global().async {
             while self.backgroundTaskRunning {
-                let result = self.cpuObserver.glance()
-                switch self.cpuObserverStatus {
-                case .inited:
-                    if !result.isNormal {
-                        self.cpuObserverStatus = ObserverStatus.triggered
-                    }
-                case .triggered:
-                    if !result.isNormal {
-                        if self.cpuObserverTriggeredTime < self.cpuObserverMaxTriggeredTime {
-                            self.cpuObserverTriggeredTime += Int(self.sleepTime)
+                for observer in self.observers.values {
+                    let notification = self.notifications[observer.name]
+                    let result = observer.glance()
+                    switch observer.status {
+                    case .initialed:
+                        if !result.isNormal {
+                            observer.enterTriggeredStatus()
                         }
-                        else {
-                            DispatchQueue.main.async {
-                                self.sendNotification(
-                                    title: result.description,
-                                    informativeText: String(
-                                        format: "user: %0.2f%s", result.value,
-                                        result.unit))
+                    case .triggered:
+                        if !result.isNormal {
+                            if observer.triggeredSeconds < observer.triggeredMaxSeconds {
+                                observer.triggeredSeconds += self.sleepSeconds
+                            } else {
+                                notification!.informativeText = result.description
+                                self.notificationCenter.deliver(notification!)
+                                observer.enterAlertedStatus()
+                                observer.triggeredSeconds = 0
                             }
-                            self.cpuObserverStatus = ObserverStatus.alerted
-                            self.cpuObserverTriggeredTime = 0
+                        } else {
+                            observer.enterInitialedStatus()
+                            observer.triggeredSeconds = 0
+                        }
+                    case .sleeping:
+                        if observer.sleepingSeconds < observer.sleepingMaxSeconds {
+                            observer.sleepingSeconds += self.sleepSeconds
+                        } else {
+                            observer.sleepingSeconds = 0
+                            observer.enterInitialedStatus()
+                        }
+                    case .alerted:
+                        let isNotificationClosed =
+                                !self.notificationCenter.deliveredNotifications.contains(
+                                        notification!)
+                        if isNotificationClosed {
+                            observer.enterInitialedStatus()
+                        }
+                        else if result.isNormal {
+                            self.notificationCenter.removeDeliveredNotification(
+                                notification!
+                            )
+                            observer.enterInitialedStatus()
                         }
                     }
-                    else {
-                        self.cpuObserverStatus = ObserverStatus.inited
-                        self.cpuObserverTriggeredTime = 0
-                    }
-                case .sleeped:
-                    if self.cpuObserverSleepedTime < self.cpuObserverMaxSleepedTime {
-                        self.cpuObserverSleepedTime += Int(self.sleepTime)
-                    }
-                    else {
-                        self.cpuObserverSleepedTime = 0
-                        self.cpuObserverStatus = ObserverStatus.inited
-                    }
-                case .alerted:
-                    if result.isNormal {
-                        self.notificationCenter.removeDeliveredNotification(
-                            self.notification
-                        )
-                        self.cpuObserverStatus = ObserverStatus.inited
-                    }
-                default:
-                    break;
                 }
-                sleep(self.sleepTime)
+                sleep(self.sleepSeconds)
             }
         }
     }
