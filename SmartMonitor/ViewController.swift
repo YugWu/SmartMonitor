@@ -14,10 +14,8 @@ class ViewController: NSViewController, NSUserNotificationCenterDelegate {
     @IBOutlet weak var testText: NSTextField!
     
     let notificationCenter = NSUserNotificationCenter.default
-    let notificationActionTitle = "sleep"
-    let notificationActions = [
-            NSUserNotificationAction(identifier: "sleep", title: "sleep"),
-            NSUserNotificationAction(identifier: "exit", title: "exit")]
+    let notificationActionTitle = "exit"
+    let notificationOtherButtonTitle = "ignore"
 
     var observers = [String : Observer]()
     var notifications = [String: NSUserNotification]()
@@ -38,7 +36,7 @@ class ViewController: NSViewController, NSUserNotificationCenterDelegate {
 
         notification.title = cpuObserver.name
         notification.actionButtonTitle = notificationActionTitle
-        notification.additionalActions = notificationActions
+        notification.otherButtonTitle = notificationOtherButtonTitle
 
         observers[cpuObserver.name] = cpuObserver
         notifications[cpuObserver.name] = notification
@@ -85,17 +83,8 @@ class ViewController: NSViewController, NSUserNotificationCenterDelegate {
             self.openSystemMonitor()
             self.notificationCenter.removeDeliveredNotification(notification)
             observer!.enterInitialedStatus()
-         // FIXME: Do not pop window or get focus
         case .actionButtonClicked:
-            observer!.enterSleepingStatus()
-        case .additionalActionClicked:
-            let action =
-                notification.additionalActivationAction!.identifier!
-            if action == "exit" {
-                exit(0)
-            } else if action == "sleep" {
-                observer!.enterSleepingStatus()
-            }
+            exit(0)
         default:
             break;
         }
@@ -135,10 +124,10 @@ class ViewController: NSViewController, NSUserNotificationCenterDelegate {
                             observer.enterInitialedStatus()
                         }
                     case .alerted:
-                        let isNotificationClosed =
+                        let isNotificationIgnored =
                                 !self.notificationCenter.deliveredNotifications.contains(
                                         notification!)
-                        if isNotificationClosed {
+                        if isNotificationIgnored {
                             observer.enterInitialedStatus()
                         }
                         else if result.isNormal {
