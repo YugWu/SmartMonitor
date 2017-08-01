@@ -38,6 +38,7 @@ class SmartMonitorTests: XCTestCase {
 
 class SystemObserverTests: XCTestCase {
     let cpuObserver = CpuObserver(normalValue: 50)
+    let memoryObserver = MemoryObserver(normalValue: 50)
     
     override func setUp() {
         super.setUp()
@@ -53,6 +54,8 @@ class SystemObserverTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let _ = cpuObserver.glance()
         cpuObserver.enterInitialedStatus()
+        let _ = memoryObserver.glance()
+        memoryObserver.enterInitialedStatus()
     }
     
     func testPerformanceExample() {

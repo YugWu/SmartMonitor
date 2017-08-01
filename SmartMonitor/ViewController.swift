@@ -30,16 +30,19 @@ class ViewController: NSViewController, NSUserNotificationCenterDelegate {
         // FIXME: circular reference with notificationCenter
         notificationCenter.delegate = self
 
-        // TODO: dynamic define observers and notifications
-        let notification = NSUserNotification()
+        // TODO: dynamic define observers?
         let cpuObserver = CpuObserver(normalValue: 50.0)
-
-        notification.title = cpuObserver.name
-        notification.actionButtonTitle = notificationActionTitle
-        notification.otherButtonTitle = notificationOtherButtonTitle
-
+        let memoryObserver = MemoryObserver(normalValue: 80.0)
         observers[cpuObserver.name] = cpuObserver
-        notifications[cpuObserver.name] = notification
+        observers[memoryObserver.name] = memoryObserver
+
+        for observerName in observers.keys {
+            let notification = NSUserNotification()
+            notification.title = observerName
+            notification.actionButtonTitle = notificationActionTitle
+            notification.otherButtonTitle = notificationOtherButtonTitle
+            notifications[observerName] = notification
+        }
     }
 
     override var representedObject: Any? {

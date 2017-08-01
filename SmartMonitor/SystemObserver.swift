@@ -114,3 +114,28 @@ class CpuObserver: Observer {
         return (Float)(1 - idle / total) * 100
     }
 }
+
+
+class MemoryObserver: Observer {
+    static private let machHostSelf = mach_host_self()
+    static private let INTEGER_T_COUNT = MemoryLayout<integer_t>.stride
+    static private let VM_STATISTIC_COUNT =
+            MemoryLayout<vm_statistics64>.stride / INTEGER_T_COUNT
+    var vmStatistic = vm_statistics64()
+
+    init (normalValue: Float){
+        super.init(name: "Memory", normalValue: normalValue, unit: "%")
+    }
+
+    override func record() -> (Float) {
+        var size = mach_msg_type_number_t(MemoryObserver.VM_STATISTIC_COUNT)
+        _ = withUnsafeMutablePointer(to: &vmStatistic) {
+            $0.withMemoryRebound(to: integer_t.self, capacity: Int(size)) {
+                host_statistics(MemoryObserver.machHostSelf, Int32(HOST_LOAD_INFO), $0, &size)
+            }
+        }
+        let sumCount = vmStatistic.free_count + vmStatistic.active_count + vmStatistic.inactive_count +
+                vmStatistic.wire_count + vmStatistic.compressor_page_count
+        return (1 - (Float)(vmStatistic.free_count) / (Float)(sumCount)) * 100
+    }
+}

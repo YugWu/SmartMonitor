@@ -9,5 +9,5 @@ the system resources are consumed too much😄.
 * Swift3 on MacOS
 
 
-This still in early development(v0.1.2).
+This still in early development(v0.2.0).
 
